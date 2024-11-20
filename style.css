@@ -1,0 +1,250 @@
+/* General Styles */
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+
+}
+
+nav {
+    background-color:  #fd6569;;
+    color: rgb(3, 3, 3);
+    padding: 10px;
+}
+
+/* General Container for Task List */
+.task-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the task boxes */
+    padding: 0;
+    margin: 20px 0;
+    list-style: none; /* Removes default list styling */
+}
+
+/* Individual Task Item */
+.task-item {
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 300px; /* Fixed width for each task box */
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Ensures content is stacked vertically */
+    justify-content: space-between;
+    transition: transform 0.2s; /* Smooth hover effect */
+}
+
+/* Hover effect for Task Item */
+.task-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* Task Title */
+.task-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+/* Task Description */
+.task-description {
+    font-size: 1em;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+/* Update Button */
+.update-link {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* Hover Effect for Update Button */
+.update-link:hover {
+    background-color: #218838;
+}
+
+/* Delete Link */
+.delete-link {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.delete-link:hover {
+    background-color: #c82333;
+}
+
+/* Completed Link */
+.complete-link {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.complete-link:hover {
+    background-color: #0056b3;
+}
+
+.back-button {
+    display: inline-block;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #218838;
+}
+/* Completed Task Styling */
+.completed {
+    background-color: #d4edda; /* Light green background for completed tasks */
+    color: #155724;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    margin-bottom: 15px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .task-item {
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+
+.add-task-btn {
+    background-color: #fd6569; /* Button background color */
+    color: rgb(10, 10, 10); /* Plus sign color */
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    width: 70px; /* Width of the circle */
+    height: 70px; /* Height of the circle */
+    font-size: 40px; /* Size of the plus sign */
+    position: fixed; /* Position the button */
+    bottom: 30px; /* Distance from the bottom of the screen */
+    right: 30px; /* Distance from the right of the screen */
+    text-align: center;
+    cursor: pointer;
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Horizontally center the plus */
+    align-items: center; /* Vertically center the plus */
+}
+
+.add-task-btn:hover {
+    background-color: #e55055; /* Darken button color on hover */
+}
+
+/* To make the overlay cover the whole screen */
+.task-title, .task-description {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    margin-left: 10px;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-item {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.pop-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.task-view {
+    background-color: white;
+    padding: 50px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+

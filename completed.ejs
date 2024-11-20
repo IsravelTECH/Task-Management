@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Completed Tasks</title>
+</head>
+<body>
+    <nav>
+        <h1>Completed Tasks</h1>
+        </nav>
+    
+        
+       
+        <ul class="task-list">
+            <% if (tasks.length > 0) { %>
+                <% tasks.forEach(task => { %>
+                    <li class="task-item completed">
+                        <strong>Title:</strong> <%= task.title %> <br>
+                        <strong>Description:</strong> <%= task.description %> <br>
+                        <strong>Status:</strong> <span class="completed-status">Completed</span> <br>
+                        <a href="/task/delete/<%= task._id %>" class="delete-link">Delete</a>
+                    </li>
+                   
+                <% }) %>
+            <% } else { %>
+                <p class="no-tasks">No completed tasks available.</p>
+            <% } %>
+            <a href="/" class="back-link">Back</a>
+
+        </ul>
+   
+</body>
+</html>

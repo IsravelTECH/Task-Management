@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Task Manager</title>
+</head>
+<body>
+    <nav>
+        <h1>Task Manager</h1>
+    </nav>
+    
+    <ul class="task-list">
+        <% tasks.forEach(task => { %>
+            <li class="task-item <%= task.completed ? 'completed' : '' %>">
+                <form action="/task/<%= task._id %>" method="POST">
+                    <span class="task-title"><%= task.title %></span>
+                    <p class="task-description"><%= task.description %></p>
+                    <input type="checkbox" name="completed" <%= task.completed ? 'checked' : '' %>> Completed
+                    <button type="submit" class="update-link">Update Task</button>
+                </form>
+                <a href="/task/delete/<%= task._id %>" class="delete-link">Delete</a>
+                <a href="/completed" class="complete-link">Completed</a>
+            </li>
+        <% }) %>
+    </ul>
+    
+
+    <button type="button" id="show-form-btn" class="add-task-btn">+</button>
+
+    <div class="pop-overlay" id="overlay" style="display:none;">
+        <!-- Task form hidden initially -->
+        <form action="/task" method="POST" id="task-form" class="task-view">
+            <input type="text" name="title" placeholder="Task title" required>
+            <textarea name="description" placeholder="Task description"></textarea>
+            <button type="submit">Add Task</button>
+            <!-- Cancel Button -->
+            <button type="button" id="cancel-btn" class="cancel-btn">Cancel</button>
+        </form>
+    </div>
+    
+    
+    <script>
+        const showFormBtn = document.getElementById('show-form-btn');
+        const overlay = document.getElementById('overlay');
+    
+        showFormBtn.addEventListener('click', function() {
+            if (overlay.style.display === 'none') {
+                overlay.style.display = 'flex'; // Show the overlay and the form
+            } else {
+                overlay.style.display = 'none'; // Hide the overlay if it's already visible
+            }
+        });
+
+    // Show form when plus button is clicked
+    document.getElementById('show-form-btn').addEventListener('click', function() {
+        document.getElementById('overlay').style.display = 'flex'; // Show the overlay form
+    });
+
+    // Hide form when cancel button is clicked
+    document.getElementById('cancel-btn').addEventListener('click', function() {
+        document.getElementById('overlay').style.display = 'none'; // Hide the overlay form
+    });
+
+
+    </script>
+    
+</body>
+</html>
